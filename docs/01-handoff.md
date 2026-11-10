@@ -47,6 +47,119 @@ product conversation, not an implementation detail.
 | 4 · Emails *(briefed flow)* | Student | [`emails.html`](../prototype/emails.html) | [Emails](https://www.figma.com/design/CX6Lxfl52NCGfI3CvvGoHO?node-id=9-2) | Ready, reminder, received, second attempt, window closed |
 | 5 · Grading view | Instructor | [`grading.html`](../prototype/grading.html) | [Grading view](https://www.figma.com/design/CX6Lxfl52NCGfI3CvvGoHO?node-id=12-2) | As pitched, as built; question selected or none |
 
+## Feature breakdown
+
+One entry per feature: the business logic it has to follow, how to reach it
+in the prototype, and every file that describes it. Build from this; the
+decisions below explain why it is this way.
+
+### F1 · Setup
+
+**Business logic**
+
+- AuthorProof is turned on per assignment, by the instructor.
+- Number of questions: 3 to 5, default 5. Each question is generated from the student's own essay.
+- Time limit: 5, 10 or 15 minutes, default 10. It starts when the quiz appears, not when the essay is uploaded.
+- Second attempt: off by default. When on, a retake draws new questions from the same essay.
+- Changing any setting starts the quiz over: an attempt in progress is discarded and the result returns to the sample.
+
+**Navigate the prototype**
+
+1. Open [`flow.html`](../prototype/flow.html) and choose **1 · Setup**.
+2. Change the count or the time limit; the summary line under the settings updates as you go.
+3. Choose **Save and view as the student** to see the quiz those settings produce.
+
+**Related files**
+
+- Prototype: [`prototype/flow.html`](../prototype/flow.html), [`prototype/js/flow.js`](../prototype/js/flow.js) (`renderSetup`), limits and defaults in [`prototype/js/data.js`](../prototype/js/data.js)
+- Figma: [Student flow · 01 Setup](https://www.figma.com/design/CX6Lxfl52NCGfI3CvvGoHO?node-id=6-2)
+- Test plan: [SF-02, SF-03, RS-03](03-test-plan.md)
+
+### F2 · Submit and quiz
+
+**Business logic**
+
+- The quiz appears on the assignment page seconds after upload. There is no notification and no second place to go.
+- The quiz has as many questions as the setup asks for, each from a passage of the submitted essay.
+- The time limit counts down from the setup's value while the quiz is open.
+- Submit stays disabled until at least one question is answered. Unanswered questions are submitted as "No answer".
+- The confirmation says the result is not a grade. A retake is offered only when the setup allows one.
+
+**Navigate the prototype**
+
+1. Open [`flow.html`](../prototype/flow.html) on **2 · Student** and choose **Upload**.
+2. Watch the two waits: uploading, then writing the questions.
+3. Answer one or more questions and choose **Submit quiz**.
+
+**Related files**
+
+- Prototype: [`prototype/js/flow.js`](../prototype/js/flow.js) (`startUpload`, `renderStudent`), questions in [`prototype/js/data.js`](../prototype/js/data.js)
+- Figma: [Student flow · 02 to 05](https://www.figma.com/design/CX6Lxfl52NCGfI3CvvGoHO?node-id=6-2)
+- Test plan: [SF-01, SF-04 to SF-06](03-test-plan.md)
+
+### F3 · Result
+
+**Business logic**
+
+- The result sits beside the submission, where the instructor grades.
+- "Matched the essay" counts answers that agree with the essay.
+- Confidence is a word: High at 80% matched or more, Medium at 50% or more, otherwise Low. *(Placeholder thresholds; see Illustrative values.)*
+- Every question shows the passage it came from, the question, the student's answer and the assessment, side by side.
+- Nothing reads as pass or fail. Badges say "Matches the essay" or "Does not match", with an icon.
+
+**Navigate the prototype**
+
+1. Take the quiz in F2, then choose **View as the instructor**; or open **3 · Result** to see the sample attempt.
+2. Answer some questions wrong to see "Does not match" and the confidence change.
+
+**Related files**
+
+- Prototype: [`prototype/js/flow.js`](../prototype/js/flow.js) (`renderResult`), the confidence rule in [`prototype/js/ui.js`](../prototype/js/ui.js)
+- Figma: [Student flow · 06 Result](https://www.figma.com/design/CX6Lxfl52NCGfI3CvvGoHO?node-id=6-2)
+- Test plan: [RS-01 to RS-03](03-test-plan.md)
+
+### F4 · Emails *(briefed flow)*
+
+**Business logic**
+
+- Ready: sent about ten minutes after the essay is submitted.
+- Reminder: two hours before the window closes, only if the quiz has not been started.
+- Received: as soon as the quiz is submitted. Nothing left to click.
+- Second attempt: only when the setup allows retakes.
+- Window closed: once, when the window ends with no quiz. Neutral, never a failure.
+- Question count and time limit come from the setup. The 12-hour window is a placeholder.
+
+**Navigate the prototype**
+
+1. Optionally change the setup in F1 first.
+2. Open [`emails.html`](../prototype/emails.html) and pick a state above the email.
+
+**Related files**
+
+- Prototype: [`prototype/emails.html`](../prototype/emails.html), [`prototype/js/emails.js`](../prototype/js/emails.js)
+- Figma: [Emails](https://www.figma.com/design/CX6Lxfl52NCGfI3CvvGoHO?node-id=9-2)
+- Test plan: [EM-01 to EM-05](03-test-plan.md)
+
+### F5 · Grading view
+
+**Business logic**
+
+- As pitched: AuthorProof's results, the paper and the existing grading panel in one view.
+- Selecting a question marks its passage in the paper and scrolls to it; on a phone the page scrolls to it. Selecting it again clears the mark.
+- The similarity score shows as a neutral badge, never as a pass.
+- As built: the results panel alone, with the passage opened inside it.
+
+**Navigate the prototype**
+
+1. Open [`grading.html`](../prototype/grading.html) on **As pitched** and select **Question 4**.
+2. Switch to **As built** and select a question to see the passage inline.
+
+**Related files**
+
+- Prototype: [`prototype/grading.html`](../prototype/grading.html), [`prototype/js/grading.js`](../prototype/js/grading.js), the essay in [`prototype/js/data.js`](../prototype/js/data.js)
+- Figma: [Grading view](https://www.figma.com/design/CX6Lxfl52NCGfI3CvvGoHO?node-id=12-2)
+- Test plan: [GV-01 to GV-05](03-test-plan.md)
+
 ## Decisions
 
 Each records what was chosen, what was ruled out, and what it costs. They
