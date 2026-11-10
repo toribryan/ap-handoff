@@ -49,11 +49,18 @@ product conversation, not an implementation detail.
 
 ## Feature breakdown
 
-One entry per feature: the business logic it has to follow, how to reach it
-in the prototype, and every file that describes it. Build from this; the
+One entry per feature: the user journey through it, the business logic it
+has to follow, how to reach it in the prototype, and every file that
+describes it. Build from this; the
 decisions below explain why it is this way.
 
 ### F1 · Setup
+
+**User journey** · Instructor
+
+1. Opens the assignment in the assignment editor.
+2. Turns on AuthorProof and chooses the number of questions, the time limit and whether a second attempt is allowed.
+3. Saves. From then on, every student who submits gets a quiz on their own essay.
 
 **Business logic**
 
@@ -77,6 +84,13 @@ decisions below explain why it is this way.
 
 ### F2 · Submit and quiz
 
+**User journey** · Student
+
+1. Opens the assignment and uploads the essay.
+2. Sees the quiz appear on the same page, seconds later.
+3. Answers within the time limit and submits.
+4. Reads that the result is not a grade, and retakes if the instructor allowed it.
+
 **Business logic**
 
 - The quiz appears on the assignment page seconds after upload. There is no notification and no second place to go.
@@ -99,6 +113,13 @@ decisions below explain why it is this way.
 
 ### F3 · Result
 
+**User journey** · Instructor
+
+1. Opens the submission to grade it, as they already do.
+2. Reads the result beside the essay: how much matched, and the confidence.
+3. Checks any question against the passage it came from.
+4. Decides what to do with it, including talking to the student.
+
 **Business logic**
 
 - The result sits beside the submission, where the instructor grades.
@@ -119,6 +140,12 @@ decisions below explain why it is this way.
 - Test plan: [RS-01 to RS-03](03-test-plan.md)
 
 ### F4 · Emails *(briefed flow)*
+
+**User journey** · Student, in the briefed flow
+
+1. Submits the essay.
+2. Gets the ready email about ten minutes later, and leaves it to find the quiz in Canvas.
+3. Gets a reminder if the quiz is not started, then a receipt, or a notice that the window closed.
 
 **Business logic**
 
@@ -141,6 +168,13 @@ decisions below explain why it is this way.
 - Test plan: [EM-01 to EM-05](03-test-plan.md)
 
 ### F5 · Grading view
+
+**User journey** · Instructor
+
+1. Opens SpeedGrader on a submission.
+2. Reads AuthorProof's results on the left before grading.
+3. Selects a question to see its passage marked in the paper.
+4. Grades and comments on the right, without leaving the view.
 
 **Business logic**
 
