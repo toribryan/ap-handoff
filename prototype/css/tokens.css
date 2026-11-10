@@ -1,0 +1,89 @@
+/*
+ * Design tokens. Build with these names, never the raw values; the style
+ * guide lists what each one is for. The Figma file's "AuthorProof / Color"
+ * and "AuthorProof / Dimension" collections use the same names.
+ */
+:root {
+  color-scheme: light;
+
+  --background: #f7f6f2;
+  --card: #fdfcfb;
+  --surface: #f2f1ec;
+  --foreground: #131313;
+  --muted-foreground: #737268;
+  --primary: #131313;
+  --on-primary: #fdfcfb;
+  --secondary: #ebeae5;
+  --border: rgb(0 0 0 / 0.1);
+  --info: #1d4ed8;
+  --info-subtle: #e1e5ef;
+  --success: #15803d;
+  --success-subtle: #e1eae0;
+  --warning: #b45309;
+  --warning-subtle: #f0e6db;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 999px;
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  /* Type ramp: weight, size / line height. */
+  --text-display: 600 28px / 1.2 var(--font-sans);
+  --text-heading: 500 20px / 1.25 var(--font-sans);
+  --text-title: 500 16px / 1.35 var(--font-sans);
+  --text-body: 400 14px / 1.6 var(--font-sans);
+  --text-body-strong: 500 14px / 1.6 var(--font-sans);
+  --text-small: 400 12px / 1.5 var(--font-sans);
+  --text-label: 500 11px / 1.4 var(--font-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #0f0f0f;
+    --card: #141414;
+    --surface: #171717;
+    --foreground: #f5f4f2;
+    --muted-foreground: #8a8981;
+    --primary: #f5f4f2;
+    --on-primary: #0f0f0f;
+    --secondary: #242424;
+    --border: rgb(255 255 255 / 0.12);
+    --info: #60a5fa;
+    --info-subtle: #171e27;
+    --success: #4ade80;
+    --success-subtle: #15241a;
+    --warning: #fbbf24;
+    --warning-subtle: #272111;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0f0f0f;
+  --card: #141414;
+  --surface: #171717;
+  --foreground: #f5f4f2;
+  --muted-foreground: #8a8981;
+  --primary: #f5f4f2;
+  --on-primary: #0f0f0f;
+  --secondary: #242424;
+  --border: rgb(255 255 255 / 0.12);
+  --info: #60a5fa;
+  --info-subtle: #171e27;
+  --success: #4ade80;
+  --success-subtle: #15241a;
+  --warning: #fbbf24;
+  --warning-subtle: #272111;
+}

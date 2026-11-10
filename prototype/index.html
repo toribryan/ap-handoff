@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Overview · AuthorProof handoff</title>
+    <meta name="description" content="AuthorProof design-dev handoff: the coded prototype engineering builds from." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <header class="site-header" data-site-header></header>
+    <main>
+      <div class="stack-2">
+        <p class="t-label muted">Proctorio · Origin suite</p>
+        <h1 class="t-display" style="font-size:44px">AuthorProof</h1>
+        <p class="muted measure">Plagiarism checkers read the document. AuthorProof asks the student about the paper they turned in: a short quiz generated from their own writing, with the result beside the submission where instructors already grade.</p>
+        <p class="t-small muted measure">The original design files are under NDA. Everything here is recreated from scratch with sample data; the decisions are the ones made on the product.</p>
+      </div>
+      <ol class="stack-3" aria-label="Surfaces">
+        <li><a class="card card--pad stack-1" style="display:flex;text-decoration:none" href="flow.html"><span class="t-label muted">1 to 3</span><span class="t-title">Student flow</span><span class="muted">Setup, the student’s upload-to-quiz flow, and the instructor’s result.</span></a></li>
+        <li><a class="card card--pad stack-1" style="display:flex;text-decoration:none" href="emails.html"><span class="t-label muted">4 · as briefed</span><span class="t-title">Emails</span><span class="muted">The quiz email in five states, from ready to the window closing.</span></a></li>
+        <li><a class="card card--pad stack-1" style="display:flex;text-decoration:none" href="grading.html"><span class="t-label muted">5</span><span class="t-title">Grading view</span><span class="muted">The reviewing side as pitched, in one grading view, and as built.</span></a></li>
+      </ol>
+      <section class="stack-2">
+        <h2 class="t-heading">Handoff</h2>
+        <p class="muted measure">Three documents sit beside this prototype in <code>docs/</code>: the handoff (what and why), the style guide (what it looks like), and the test plan (how to know it’s right). This prototype is the reference they point at: sample data, nothing to deploy.</p>
+      </section>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script>AP.ui.header("index.html");</script>
+  </body>
+</html>

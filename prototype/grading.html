@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grading view · AuthorProof handoff</title>
+    <meta name="description" content="The reviewing side, as pitched and as built." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <header class="site-header" data-site-header></header>
+    <main>
+      <div class="stack-2">
+        <p class="t-label muted">Surface 5</p>
+        <h1 class="t-display">The reviewing side</h1>
+        <p class="muted measure">Where the instructor reads the result and grades. I pitched putting AuthorProof inside SpeedGrader, beside the paper and the grading panel instructors already trust. What was built is the results panel on its own.</p>
+      </div>
+      <section class="shell" aria-label="Prototype">
+        <div class="tabs" role="tablist" aria-label="Layouts">
+          <button class="tab" role="tab" id="tab-pitched" aria-controls="panel-pitched" aria-selected="true" tabindex="0" data-value="pitched">As pitched</button>
+          <button class="tab" role="tab" id="tab-built" aria-controls="panel-built" aria-selected="false" tabindex="-1" data-value="built">As built</button>
+        </div>
+        <div role="tabpanel" id="panel-pitched" aria-labelledby="tab-pitched"></div>
+        <div role="tabpanel" id="panel-built" aria-labelledby="tab-built" hidden></div>
+        <p class="shell__foot" data-footnote></p>
+      </section>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/grading.js"></script>
+    <script>document.querySelectorAll("[data-footnote]").forEach((n) => (n.textContent = AP.ui.FOOTNOTE));</script>
+  </body>
+</html>

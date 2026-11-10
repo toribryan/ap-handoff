@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student flow · AuthorProof handoff</title>
+    <meta name="description" content="The instructor's setup, the student's upload-to-quiz flow, and the result the instructor reads." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <header class="site-header" data-site-header></header>
+    <main>
+      <div class="stack-2">
+        <p class="t-label muted">Surfaces 1 to 3</p>
+        <h1 class="t-display">Student flow</h1>
+        <p class="muted measure">The instructor turns AuthorProof on, the student uploads their essay and the quiz arrives on the same page seconds later, and the instructor reads the result beside the submission. Start on the Student tab.</p>
+      </div>
+      <section class="shell" aria-label="Prototype">
+        <div class="tabs" role="tablist" aria-label="Views">
+          <button class="tab" role="tab" id="tab-setup" aria-controls="panel-setup" aria-selected="false" tabindex="-1" data-value="setup">1 · Setup</button>
+          <button class="tab" role="tab" id="tab-student" aria-controls="panel-student" aria-selected="true" tabindex="0" data-value="student">2 · Student</button>
+          <button class="tab" role="tab" id="tab-result" aria-controls="panel-result" aria-selected="false" tabindex="-1" data-value="result">3 · Result</button>
+        </div>
+        <div class="shell__body" role="tabpanel" id="panel-setup" aria-labelledby="tab-setup" hidden></div>
+        <div class="shell__body" role="tabpanel" id="panel-student" aria-labelledby="tab-student"></div>
+        <div class="shell__body" role="tabpanel" id="panel-result" aria-labelledby="tab-result" hidden></div>
+        <p class="shell__foot" data-footnote></p>
+      </section>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/flow.js"></script>
+    <script>document.querySelectorAll("[data-footnote]").forEach((n) => (n.textContent = AP.ui.FOOTNOTE));</script>
+  </body>
+</html>

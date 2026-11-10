@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emails · AuthorProof handoff</title>
+    <meta name="description" content="The briefed flow's quiz email in five states." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <header class="site-header" data-site-header></header>
+    <main>
+      <div class="stack-2">
+        <p class="t-label muted">Surface 4 · as briefed</p>
+        <h1 class="t-display">The quiz emails</h1>
+        <p class="muted measure">The briefed flow reached students by email and sent them to find the quiz in Canvas. Each state is one email, from the quiz being ready to the window closing. The pitched flow, where the quiz appears inside the assignment, needed none of them.</p>
+      </div>
+      <section class="shell" aria-label="Prototype">
+        <div class="shell__body" id="emails"></div>
+        <p class="shell__foot" data-footnote></p>
+      </section>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/emails.js"></script>
+    <script>document.querySelectorAll("[data-footnote]").forEach((n) => (n.textContent = AP.ui.FOOTNOTE));</script>
+  </body>
+</html>

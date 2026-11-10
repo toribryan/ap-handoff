@@ -1,0 +1,250 @@
+/*
+ * Components. Each block is one component from the style guide, and its
+ * modifier classes are its variants.
+ */
+
+/* Button · variant=Primary|Outline, size=sm|lg */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 32px;
+  padding: 0 var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font: var(--text-body-strong);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn--outline {
+  background: var(--secondary);
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.btn--lg {
+  min-height: 44px;
+  padding: 0 var(--space-4);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--icon {
+  width: 32px;
+  padding: 0;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Badge · tone=Success|Warning|Neutral. Always words; an icon where it adds meaning. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  font: var(--text-small);
+  white-space: nowrap;
+}
+
+.badge--success { background: var(--success-subtle); color: var(--success); }
+.badge--warning { background: var(--warning-subtle); color: var(--warning); }
+.badge--neutral { background: var(--secondary); color: var(--foreground); }
+
+/* Notice · tone=Info|Warning|Success|Neutral */
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font: var(--text-body);
+}
+
+.notice svg { margin-top: 3px; flex: none; }
+.notice--info { background: var(--info-subtle); color: var(--info); }
+.notice--warning { background: var(--warning-subtle); color: var(--warning); }
+.notice--success { background: var(--success-subtle); color: var(--success); }
+.notice--neutral { background: var(--surface); color: var(--foreground); border: 1px solid var(--border); }
+
+/* Tabs · state=Active|Inactive */
+.tabs {
+  display: flex;
+  gap: var(--space-4);
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+  overflow-x: auto;
+}
+
+.tab {
+  position: relative;
+  padding: 10px var(--space-1) 9px;
+  border: 0;
+  background: none;
+  color: var(--muted-foreground);
+  font: var(--text-body-strong);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tab[aria-selected="true"] {
+  color: var(--foreground);
+}
+
+.tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 1px;
+  background: var(--foreground);
+}
+
+/* Shell: the frame every prototype view sits in */
+.shell {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+}
+
+.shell__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+.shell__foot {
+  padding: 10px var(--space-4);
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted-foreground);
+  font: var(--text-small);
+}
+
+/* Card */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+
+.card--pad { padding: var(--space-4); }
+
+/* Settings rows */
+.setting {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  padding: 14px var(--space-4);
+}
+
+.setting + .setting { border-top: 1px solid var(--border); }
+.setting__text { flex: 1 1 12rem; display: flex; flex-direction: column; gap: 2px; }
+
+/* Segmented control */
+.segmented {
+  display: flex;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.segmented button {
+  min-height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--muted-foreground);
+  font: var(--text-small);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.segmented button[aria-checked="true"] {
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+/* Quiz option · state=Unselected|Selected */
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: 6px var(--space-2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.option:hover { background: var(--surface); }
+.option:has(input:checked) { background: var(--secondary); }
+.option input { margin-top: 4px; accent-color: var(--foreground); }
+
+/* Stat tile */
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+/* Detail row */
+.detail { display: flex; flex-direction: column; gap: 2px; }
+.detail dt { font: var(--text-label); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted-foreground); }
+
+/* Question row · result=Matches|Does not match, state=Collapsed|Expanded */
+.qrow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  text-align: left;
+  cursor: pointer;
+}
+
+.qrow:hover { background: var(--surface); }
+.qrow[aria-pressed="true"] { background: var(--secondary); }
+
+/* Quoted passage */
+.passage {
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--border);
+}
+
+/* The marked passage in the paper */
+mark.passage-mark {
+  padding: 0 2px;
+  border-radius: 3px;
+  background: var(--info-subtle);
+  color: var(--foreground);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--info) 40%, transparent);
+}
+
+/* Spinner */
+.spin { animation: spin 1s linear infinite; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
